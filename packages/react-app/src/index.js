@@ -5,15 +5,18 @@ import { ApolloProvider } from "@apollo/react-hooks";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
+import Store from "./contexts/Store";
 
 // You should replace this uri with your own and put it into a .env file
 const client = new ApolloClient({
-  uri: "https://api.thegraph.com/subgraphs/name/paulrberg/create-eth-app",
+  uri: "https://api.thegraph.com/subgraphs/name/odyssy-automaton/daohaus-kovan",
 });
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <Store>
+      <App />
+    </Store>
   </ApolloProvider>,
   document.getElementById("root"),
 );
