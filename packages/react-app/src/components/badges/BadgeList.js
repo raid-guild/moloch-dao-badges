@@ -3,9 +3,7 @@ import React, { useEffect } from "react";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
-import voteBadgeSm from "../../assets/1check.svg";
-import voteBadgeMd from "../../assets/10check.svg";
-import voteBadgeLg from "../../assets/50check.svg";
+import Badges from '../../assets/data/badges.json';
 
 const GET_BADGES = gql`
   query($addr: String!) {
@@ -41,40 +39,28 @@ const BadgeList = (props) => {
     }
   }, [loading, error, data]);
 
+  const renderBadges = () => {
+    Object.entries(badges).map((key, val) => {
+      const badgeSet = Badges.badges.find((badge) => badge.title === key);
+      return badgeSet.files.map((badge, idx) => (
+        <div>
+          {val > badgeSet.threshHolds[idx] && (
+            <div>
+              <img alt="" src={badgeSet.files[idx]} />val
+          </div>
+          )}
+        </div>
+      ))
+
+    })
+
+  }
+
   return (
     <div>
-      {badges.length && badges[0].voteCount && (
-        <div>
-          <div>
-            {badges[0].voteCount > 0 && (
-              <div>
-                <img alt="" src={voteBadgeSm} />1
-              </div>
-            )}
-            {badges[0].voteCount > 5 && (
-              <div>
-                <img alt="" src={voteBadgeMd} />5
-              </div>
-            )}
-            {badges[0].voteCount > 10 && (
-              <div>
-                <img alt="" src={voteBadgeLg} />
-                10
-              </div>
-            )}
-          </div>
-        </div>
-      )}
-      <p>Votes: {badges.length && badges[0].voteCount}</p>
-      <p>Summons: {badges.length && badges[0].summonCount}</p>
-      <p>
-        proposalSponsorCount: {badges.length && badges[0].proposalSponsorCount}
-      </p>
-      <p>
-        proposalSubmissionCount:{" "}
-        {badges.length && badges[0].proposalSubmissionCount}
-      </p>
-      <p>rageQuitCount: {badges.length && badges[0].rageQuitCount}</p>
+      <h1>{badges.length}</h1>
+      {badges.length &&  renderBadges() }
+
     </div>
   );
 };

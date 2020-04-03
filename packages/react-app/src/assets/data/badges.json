@@ -1,0 +1,48 @@
+{
+    "title": "Badge Registry",
+    "badges": [
+        {
+            "title": "voteCount",
+            "uris": ["uri or hash of file"],
+            "metaUris": [],
+            "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
+            "threshHolds": [1,10,100]
+        },
+        {
+            "title": "summonCount",
+            "uris": ["uri or hash of file"],
+            "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
+            "metaUris": [],
+            "threshHolds": [1,10,100]
+        },
+        {
+            "title": "proposalSponsorCount",
+            "uris": ["uri or hash of file"],
+            "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
+            "metaUris": [],
+            "threshHolds": [1,10,100]
+        },
+        {
+            "title": "proposalSubmissionCount",
+            "uris": ["uri or hash of file"],
+            "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
+            "metaUris": [],
+            "threshHolds": [1,10,100]
+        },
+        {
+            "title": "rageQuitCount",
+            "uris": ["uri or hash of file"],
+            "files": ["017-insignia.svg"],
+            "metaUris": [],
+            "threshHolds": [1]
+        },
+        {
+            "title": "jailedCount",
+            "uris": ["uri or hash of file"],
+            "files": ["017-insignia.svg"],
+            "metaUris": [],
+            "threshHolds": [1]
+        }
+    ]
+}
+
