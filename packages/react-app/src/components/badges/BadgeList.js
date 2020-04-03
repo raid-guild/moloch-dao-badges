@@ -1,28 +1,13 @@
 import React, { useEffect } from "react";
-
 import { useQuery } from "@apollo/react-hooks";
-import { gql } from "apollo-boost";
+import { Flex, Heading, Text, Box } from "rebass";
 
-import Badges from '../../assets/data/badges.json';
+import { GET_BADGES } from "../../utils/Queries";
+import { hydrateBadgeData } from "../../utils/Helpers";
+import BadgeRegistry from "../../assets/data/badges.json";
+import BadgeItem from "./BadgeItem";
 
-const GET_BADGES = gql`
-  query($addr: String!) {
-    badges(where: { memberAddress: $addr }) {
-      memberAddress
-      voteCount
-      summonCount
-      proposalSponsorCount
-      proposalSubmissionCount
-      rageQuitCount
-      jailedCount
-    }
-  }
-`;
-
-const BadgeList = (props) => {
-  const { playerAddr } = props;
-  console.log("playerAddr", playerAddr);
-
+const BadgeList = ({ playerAddr }) => {
   const [badges, setBadges] = React.useState([]);
 
   const { loading, error, data } = useQuery(GET_BADGES, {
@@ -30,39 +15,37 @@ const BadgeList = (props) => {
       addr: `${playerAddr}`,
     },
   });
-  console.log(loading, error, data);
 
   useEffect(() => {
     if (!loading && !error && data) {
-      console.log({ data: data });
-      setBadges(data.badges);
+      const hydratedBadgeData = hydrateBadgeData(BadgeRegistry, data.badges);
+      setBadges(hydratedBadgeData);
     }
   }, [loading, error, data]);
 
   const renderBadges = () => {
-    Object.entries(badges).map((key, val) => {
-      const badgeSet = Badges.badges.find((badge) => badge.title === key);
-      return badgeSet.files.map((badge, idx) => (
-        <div>
-          {val > badgeSet.threshHolds[idx] && (
-            <div>
-              <img alt="" src={badgeSet.files[idx]} />val
-          </div>
-          )}
-        </div>
-      ))
+    return badges.map((badge, idx) => {
+      return (
+        <Box mb={5} key={idx}>
+          <Heading fontSize={5} color="primary">
+            {badge.title}
+          </Heading>
+          <Text fontSize={3} fontWeight="bold" color="primary">
+            {badge.description}
+          </Text>
+          <Flex>{renderBadgeItems(badge)}</Flex>
+        </Box>
+      );
+    });
+  };
 
-    })
+  const renderBadgeItems = (badge) => {
+    return badge.thresholds.map((step, idx) => {
+      return <BadgeItem badge={badge} step={step} idx={idx} key={idx} />;
+    });
+  };
 
-  }
-
-  return (
-    <div>
-      <h1>{badges.length}</h1>
-      {badges.length &&  renderBadges() }
-
-    </div>
-  );
+  return <div>{badges.length && renderBadges()}</div>;
 };
 
 export default BadgeList;

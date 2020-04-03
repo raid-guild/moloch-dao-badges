@@ -1,42 +1,42 @@
 {
-    "title": "Asset Metadata",
-    "properties": {
-        "name": {
-            "description": "Identifies the asset to which this NFT represents"
-        },
-        "description": {
-            "description": "Describes the asset to which this NFT represents"
-        },
-        "image": {
-            "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
-        },
-        "external_url": "https://raidguild.org",
-        "attributes": [
-            {
-                "trait_type": "Base",
-                "value": "Badge"
-            },
-            {
-                "trait_type": "Level",
-                "value": 5
-            },
-            {
-                "display_type": "boost_number",
-                "trait_type": "Power",
-                "value": 40
-            },
-            {
-                "display_type": "boost_percentage",
-                "trait_type": "Stamina Increase",
-                "value": 10
-            },
-            {
-                "display_type": "number",
-                "trait_type": "Generation",
-                "value": 2
-            }
-        ]
-    }
+  "title": "Asset Metadata",
+  "properties": {
+    "name": {
+      "description": "Identifies the asset to which this NFT represents"
+    },
+    "description": {
+      "description": "Describes the asset to which this NFT represents"
+    },
+    "image": {
+      "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
+    },
+    "external_url": "https://raidguild.org",
+    "attributes": [
+      {
+        "trait_type": "Base",
+        "value": "Badge"
+      },
+      {
+        "trait_type": "Level",
+        "value": 5
+      },
+      {
+        "display_type": "boost_number",
+        "trait_type": "Power",
+        "value": 40
+      },
+      {
+        "display_type": "boost_percentage",
+        "trait_type": "Stamina Increase",
+        "value": 10
+      },
+      {
+        "display_type": "number",
+        "trait_type": "Generation",
+        "value": 2
+      }
+    ]
+  }
 }
 
 // 001-medal-1.svg  004-insignia-1.svg  007-medal-5.svg  010-medal-8.svg   013-medal-11.svg  016-medal.svg     019-medal-15.svg  022-medal-18.svg  025-insignia-2.svg
