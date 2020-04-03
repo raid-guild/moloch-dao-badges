@@ -7,3 +7,5 @@
 ### 2. set up your .env
 
 ### 3. `yarn start`
+
+//Netlify
