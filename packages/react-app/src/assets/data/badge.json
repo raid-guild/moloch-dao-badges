@@ -1,0 +1,44 @@
+{
+  "title": "Asset Metadata",
+  "properties": {
+    "name": {
+      "description": "Identifies the asset to which this NFT represents"
+    },
+    "description": {
+      "description": "Describes the asset to which this NFT represents"
+    },
+    "image": {
+      "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
+    },
+    "external_url": "https://raidguild.org",
+    "attributes": [
+      {
+        "trait_type": "Base",
+        "value": "Badge"
+      },
+      {
+        "trait_type": "Level",
+        "value": 5
+      },
+      {
+        "display_type": "boost_number",
+        "trait_type": "Power",
+        "value": 40
+      },
+      {
+        "display_type": "boost_percentage",
+        "trait_type": "Stamina Increase",
+        "value": 10
+      },
+      {
+        "display_type": "number",
+        "trait_type": "Generation",
+        "value": 2
+      }
+    ]
+  }
+}
+
+// 001-medal-1.svg  004-insignia-1.svg  007-medal-5.svg  010-medal-8.svg   013-medal-11.svg  016-medal.svg     019-medal-15.svg  022-medal-18.svg  025-insignia-2.svg
+// 002-medal-2.svg  005-medal-3.svg     008-medal-6.svg  011-medal-9.svg   014-medal-12.svg  017-insignia.svg  020-medal-16.svg  023-medal-19.svg  026-medal-21.svg
+// 003-meda.svg     006-medal-4.svg     009-medal-7.svg  012-medal-10.svg  015-medal-13.svg  018-medal-14.svg  021-medal-17.svg  024-medal-20.svg
