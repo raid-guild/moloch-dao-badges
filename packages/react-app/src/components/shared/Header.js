@@ -13,7 +13,6 @@ const Header = () => {
   useEffect(() => {
     const get3BoxProfile = async () => {
       const profile = await Box.getProfile(currentUser.username);
-      console.log("profile", profile);
 
       setUser3BoxDetail(profile);
     };
