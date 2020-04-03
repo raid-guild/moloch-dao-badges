@@ -1,0 +1,17 @@
+{
+    "title": "Badge Registry",
+    "badges": [
+        {
+            "title": "Vote ",
+            "uris": ["uri or hash of file"],
+            "files": [""],
+            "threshHolds": [1,10,100]
+        },
+        {
+            "title": "Vote ",
+            "uris": ["uri or hash of file"],
+            "files": [""],
+            "threshHolds": [1,10,100]
+        }
+    ]
+}

@@ -1,0 +1,40 @@
+{
+    "title": "Asset Metadata",
+    "properties": {
+        "name": {
+            "description": "Identifies the asset to which this NFT represents"
+        },
+        "description": {
+            "description": "Describes the asset to which this NFT represents"
+        },
+        "image": {
+            "description": "A URI pointing to a resource with mime type image/* representing the asset to which this NFT represents. Consider making any images at a width between 320 and 1080 pixels and aspect ratio between 1.91:1 and 4:5 inclusive."
+        },
+        "external_url": "https://openseacreatures.io/3",
+        "attributes": [
+            {
+                "trait_type": "Base",
+                "value": "Starfish"
+            },
+            {
+                "trait_type": "Level",
+                "value": 5
+            },
+            {
+                "display_type": "boost_number",
+                "trait_type": "Aqua Power",
+                "value": 40
+            },
+            {
+                "display_type": "boost_percentage",
+                "trait_type": "Stamina Increase",
+                "value": 10
+            },
+            {
+                "display_type": "number",
+                "trait_type": "Generation",
+                "value": 2
+            }
+        ],
+    }
+}
