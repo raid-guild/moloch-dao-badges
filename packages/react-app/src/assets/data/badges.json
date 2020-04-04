@@ -6,7 +6,7 @@
       "description": "For voting in daos",
       "key": "voteCount",
       "uris": ["uri or hash of file"],
-      "metaUris": [],
+      "metaUris": ["QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
       "thresholds": [1, 10, 100]
     },
@@ -16,7 +16,7 @@
       "key": "summonCount",
       "uris": ["uri or hash of file"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
-      "metaUris": [],
+      "metaUris": ["QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6"],
       "thresholds": [1, 10, 100]
     },
     {
@@ -25,7 +25,7 @@
       "key": "proposalSponsorCount",
       "uris": ["uri or hash of file"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
-      "metaUris": [],
+      "metaUris": ["QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6"],
       "thresholds": [1, 10, 100]
     },
     {
@@ -34,7 +34,7 @@
       "key": "proposalSubmissionCount",
       "uris": ["uri or hash of file"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
-      "metaUris": [],
+      "metaUris": ["QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6","QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6"],
       "thresholds": [1, 10, 100]
     },
     {
@@ -43,7 +43,7 @@
       "key": "rageQuitCount",
       "uris": ["uri or hash of file"],
       "files": ["017-insignia.svg"],
-      "metaUris": [],
+      "metaUris": ["QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6"],
       "thresholds": [1]
     },
     {
@@ -52,7 +52,7 @@
       "key": "jailedCount",
       "uris": ["uri or hash of file"],
       "files": ["017-insignia.svg"],
-      "metaUris": [],
+      "metaUris": ["QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6"],
       "thresholds": [1]
     },
     {
@@ -61,7 +61,7 @@
       "key": "dissenter",
       "uris": ["uri or hash of file"],
       "files": ["018-medal-14.svg"],
-      "metaUris": [],
+      "metaUris": ["QmYEuTEKxExhW2R7JXFdfA5uQnT3KnkxScrUUDHfu4k8P6"],
       "thresholds": [1]
     }
   ]
