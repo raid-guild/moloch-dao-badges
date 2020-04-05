@@ -13,7 +13,10 @@ const BadgeList = ({ playerAddr }) => {
   const [badges, setBadges] = React.useState([]);
   const [web3Modal] = useContext(Web3ModalContext)
   const [txloading, setTxloading] = useState(false)
-  console.log('web3', web3Modal);
+  const [contract, setContract] = useState()
+  const [events, setEvents] = useState()
+  const [playerNFTs, setPlayerNFTs] = useState()
+  console.log('rerender', web3Modal);
 
   const { loading, error, data } = useQuery(GET_BADGES, {
     variables: {
@@ -22,16 +25,39 @@ const BadgeList = ({ playerAddr }) => {
   });
 
   useEffect(() => {
-    if (!loading && !error && data) {
-      const hydratedBadgeData = hydrateBadgeData(BadgeRegistry, data.badges);
+    if (web3Modal.web3) {
+      getLog();
+    }
+  }, [web3Modal.web3, getLog])
+
+  useEffect(() => {
+    const getDetails = async () => {
+      const promises = [];
+      events.forEach((ev) => {
+        const prom = contract.methods.tokenURI(ev.returnValues.tokenId).call();
+        promises.push(prom)
+      })
+      const tokenURIs = await Promise.all(promises);
+      setPlayerNFTs(tokenURIs.map((uri) => (
+        uri.split("/")[uri.split("/").length - 1].split("-")
+      )))
+    }
+    if (events && events.length) {
+      getDetails();
+    }
+  }, [events])
+
+  useEffect(() => {
+    if (!loading && !error && data && playerNFTs) {
+      const hydratedBadgeData = hydrateBadgeData(BadgeRegistry, data.badges, playerNFTs);
       setBadges(hydratedBadgeData);
     }
-  }, [loading, error, data]);
+  }, [loading, error, data, playerNFTs]);
 
   const mintNFT = async (badgeHash) => {
     setTxloading(true);
     console.log('hash', badgeHash);
-    const contract = new web3Modal.web3.eth.Contract(abis.NFT, addresses.badgeNFT);
+
     try {
       const txReceipt = await contract.methods
         .awardBadge(playerAddr, "https://gateway.pinata.cloud/ipfs/" + badgeHash)
@@ -41,7 +67,21 @@ const BadgeList = ({ playerAddr }) => {
       console.log('rejected');
     } finally {
       setTxloading(false);
+      getLog();
     }
+
+  }
+
+  const getLog = async () => {
+    const nftContract = new web3Modal.web3.eth.Contract(abis.NFT, addresses.badgeNFT);
+    setContract(nftContract);
+    await nftContract.getPastEvents('Transfer', {
+      filter: { from: 0, to: playerAddr },
+      fromBlock: 0,
+      toBlock: 'latest'
+    }, (err, ev) => {
+      setEvents(ev);
+    })
 
   }
 
@@ -63,7 +103,12 @@ const BadgeList = ({ playerAddr }) => {
 
   const renderBadgeItems = (badge) => {
     return badge.thresholds.map((step, idx) => {
-      return <BadgeItem mintNFT={mintNFT} badge={badge} step={step} idx={idx} key={idx} />;
+      return <BadgeItem
+        mintNFT={mintNFT}
+        badge={badge}
+        step={step}
+        idx={idx}
+        key={idx} />;
     });
   };
 
