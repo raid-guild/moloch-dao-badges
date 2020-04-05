@@ -2,7 +2,7 @@
   "title": "Badge Metadata",
   "properties": {
     "name": {
-      "description": "Vote 1"
+      "description": "Vote 10"
     },
     "description": {
       "description": "Awarded for participating in the Moloch DAO ecosystem"
@@ -18,7 +18,7 @@
       },
       {
         "trait_type": "Level",
-        "value": 1
+        "value": 10
       }
     ]
   }
