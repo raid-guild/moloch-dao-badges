@@ -15,7 +15,7 @@ const BadgeList = ({ playerAddr }) => {
   const [txloading, setTxloading] = useState(false)
   const [contract, setContract] = useState()
   const [events, setEvents] = useState()
-  const [playerNFTs, setPlayerNFTs] = useState()
+  const [playerNFTs, setPlayerNFTs] = useState([])
   console.log('rerender', web3Modal);
 
   const { loading, error, data } = useQuery(GET_BADGES, {
@@ -23,12 +23,14 @@ const BadgeList = ({ playerAddr }) => {
       addr: `${playerAddr}`,
     },
   });
+console.log(loading, error, data);
+
 
   useEffect(() => {
     if (web3Modal.web3) {
       getLog();
     }
-  }, [web3Modal.web3, getLog])
+  }, [web3Modal.web3])
 
   useEffect(() => {
     const getDetails = async () => {
@@ -80,6 +82,8 @@ const BadgeList = ({ playerAddr }) => {
       fromBlock: 0,
       toBlock: 'latest'
     }, (err, ev) => {
+      console.log('events', ev);
+      
       setEvents(ev);
     })
 
