@@ -1,6 +1,5 @@
 import React from "react";
-import { Card, Text } from "rebass";
-import { Button } from "react-bootstrap";
+import { Button, Card, Text } from "rebass";
 
 const BadgeItem = ({ badge, idx, mintNFT }) => {
   const badgeClass = badge.earned[idx] ? "" : "unearned-badge";
