@@ -1,7 +1,7 @@
 export const hydrateBadgeData = (badgeRegistery, userData, nftData) => {  
   
   return badgeRegistery.badges.map((badgeType) => {
-    const userCount = +userData[0][badgeType.key];
+    const userCount = userData[0] ? +userData[0][badgeType.key] : 0;
     badgeType.earned = badgeType.thresholds.map((limit) => {
       return userCount >= limit;
     });
