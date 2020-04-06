@@ -1,22 +1,27 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Flex, Heading, Text, Box } from "rebass";
+import { Flex, Heading, Text, Box as ReBox } from "rebass";
+import Box from "3box";
+
 
 import { GET_BADGES } from "../../utils/Queries";
 import { hydrateBadgeData, getLog } from "../../utils/Helpers";
 import BadgeRegistry from "../../assets/data/badges.json";
 import BadgeItem from "./BadgeItem";
-import { Web3ModalContext } from "../../contexts/Store";
+import { Web3ModalContext, CurrentUserContext } from "../../contexts/Store";
 import { addresses, abis } from "@project/contracts";
 
 const BadgeList = ({ playerAddr }) => {
-  const [badges, setBadges] = React.useState([]);
   const [web3Modal] = useContext(Web3ModalContext)
+  const [currentUser] = useContext(CurrentUserContext);
+
+  const [badges, setBadges] = React.useState([]);
   const [txloading, setTxloading] = useState(false)
   const [contract, setContract] = useState()
   const [events, setEvents] = useState()
   const [playerNFTs, setPlayerNFTs] = useState([])
   console.log('rerender', web3Modal);
+  console.log('user?????????????', currentUser);
 
   const { loading, error, data } = useQuery(GET_BADGES, {
     variables: {
@@ -41,7 +46,7 @@ const BadgeList = ({ playerAddr }) => {
   useEffect(() => {
     const getDetails = async () => {
       const promises = [];
-      
+
       events.forEach((ev) => {
         const prom = contract.methods.tokenURI(ev.returnValues.tokenId).call();
         promises.push(prom)
@@ -71,11 +76,20 @@ const BadgeList = ({ playerAddr }) => {
         .awardBadge(playerAddr, "https://gateway.pinata.cloud/ipfs/" + badgeHash)
         .send({ from: playerAddr });
       console.log('txReceipt', txReceipt);
+      const tokenId = txReceipt.events.Transfer.returnValues.tokenId
+      try {
+        const box = await Box.openBox(currentUser.username, window.ethereum)
+        currentUser.profile.collectiblesFavorites.push({ address: addresses.badgeNFT, token_id: tokenId });
+        await box.public.set('collectiblesFavorites', currentUser.profile.collectiblesFavorites);
+      } catch (err) {
+        console.log('3box error:', err);
+      }
     } catch {
       console.log('rejected');
     } finally {
       await getEventsFromLog();
       setTxloading(false);
+      return true;
     }
 
   }
@@ -90,7 +104,7 @@ const BadgeList = ({ playerAddr }) => {
   const renderBadges = () => {
     return badges.map((badge, idx) => {
       return (
-        <Box mb={5} key={idx}>
+        <ReBox mb={5} key={idx}>
           <Heading fontSize={5} color="primary">
             {badge.title}
           </Heading>
@@ -98,7 +112,7 @@ const BadgeList = ({ playerAddr }) => {
             {badge.description}
           </Text>
           <Flex>{renderBadgeItems(badge)}</Flex>
-        </Box>
+        </ReBox>
       );
     });
   };
