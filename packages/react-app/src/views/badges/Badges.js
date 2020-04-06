@@ -5,6 +5,8 @@ import BadgeList from "../../components/badges/BadgeList";
 
 const Badges = ({ match }) => {
   const [currentUser] = useContext(CurrentUserContext);
+  console.log('USERUSER', currentUser);
+  
   const ethAddress = match.params.address;
   const isOwner = currentUser && currentUser.username === ethAddress;
 
