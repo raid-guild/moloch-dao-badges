@@ -1,9 +1,15 @@
 import React from "react";
-import { Card, Text } from "rebass";
-import { Button } from "react-bootstrap";
+import { Button, Card, Text } from "rebass";
 
 const BadgeItem = ({ badge, idx, mintNFT }) => {
   const badgeClass = badge.earned[idx] ? "" : "unearned-badge";
+
+  const handleHeart = () => {
+    if (!badge) {
+      return;
+    }
+    mintNFT(badge.metaUris[idx])
+  }
 
   return (
     <Card width={256}>
@@ -11,9 +17,13 @@ const BadgeItem = ({ badge, idx, mintNFT }) => {
       {badge.earned[idx] ? (
         <>
           <Text>You got it!</Text>
-          <Button variant='primary' mr={2} onClick={() => mintNFT(badge.metaUris[idx])}>
-            <span aria-label="heart" role="img">❤️</span>
-          </Button>
+          {!badge.hasNft[idx] ? (
+            <Button variant='primary' mr={2} onClick={handleHeart}>
+              <span aria-label="heart" role="img">❤️</span>
+            </Button>
+          ) : (
+              <Button variant='outline' mr={2} disabled><span aria-label="check" role="img">✔</span></Button>
+            )}
         </>
       ) : (
           <Text>

@@ -2,66 +2,59 @@
   "title": "Badge Registry",
   "badges": [
     {
-      "title": "voteCount",
+      "title": "Votes",
       "description": "For voting in daos",
       "key": "voteCount",
-      "uris": ["uri or hash of file"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
-      "metaUris": ["QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/vote1Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/vote10Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/vote100Badge.json"],
+      "metaUris": ["QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-1-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-10-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-100-Badge.json"],
       "thresholds": [1, 10, 100]
     },
     {
-      "title": "summonCount",
+      "title": "Summons",
       "description": "For summoning Daos",
       "key": "summonCount",
-      "uris": ["uri or hash of file"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
-      "metaUris": ["QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/summon1Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/summon5Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/summon10Badge.json"],
+      "metaUris": ["QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/summonCount-1-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/summonCount-5-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/summonCount-10-Badge.json"],
       "thresholds": [1, 5, 10]
     },
     {
-      "title": "proposalSponsorCount",
+      "title": "Sponsor",
       "description": "You a sponsor?",
       "key": "proposalSponsorCount",
-      "uris": ["uri or hash of file"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
-      "metaUris": ["QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/sponsor1Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/sponsor10Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/sponsor100Badge.json"],
+      "metaUris": ["QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSponsorCount-1-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSponsorCount-10-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSponsorCount-100-Badge.json"],
       "thresholds": [1, 10, 100]
     },
     {
-      "title": "proposalSubmissionCount",
+      "title": "Submitter",
       "description": "You a proposer?",
       "key": "proposalSubmissionCount",
-      "uris": ["uri or hash of file"],
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
-      "metaUris": ["QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/proposer1Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/proposer10Badge.json","QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/proposer100Badge.json"],
+      "metaUris": ["QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSubmissionCount-1-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSubmissionCount-10-Badge.json","QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSubmissionCount-100-Badge.json"],
       "thresholds": [1, 10, 100]
     },
     {
-      "title": "rageQuitCount",
+      "title": "RageQuiter",
       "description": "RAGEQUITTER!!!",
       "key": "rageQuitCount",
-      "uris": ["uri or hash of file"],
       "files": ["017-insignia.svg"],
-      "metaUris": ["QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/ragequit1Badge.json"],
+      "metaUris": ["QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/rageQuitCount-1-Badge.json"],
       "thresholds": [1]
     },
     {
-      "title": "jailedCount",
+      "title": "Jailed",
       "description": "Poor fella",
       "key": "jailedCount",
-      "uris": ["uri or hash of file"],
       "files": ["017-insignia.svg"],
-      "metaUris": ["QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/jailed1Badge.json"],
+      "metaUris": ["QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/jailedCount-1-Badge.json"],
       "thresholds": [1]
     },
     {
-      "title": "dissenter",
+      "title": "Dissenter",
       "description": "For knowing when to say no",
       "key": "dissenter",
-      "uris": ["uri or hash of file"],
       "files": ["018-medal-14.svg"],
-      "metaUris": ["QmdkNvT9rqRw9ua22ALedjL8WHq6qd8oC12rUddLc3pF6Y/dissenter1Badge.json"],
+      "metaUris": ["QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/dissenter-1-Badge.json"],
       "thresholds": [1]
     }
   ]
