@@ -32,3 +32,15 @@ export const truncateAddr = (addr) => {
   return addr.slice(0, 6) + "...";
   // return addr.slice(0, 6) + "..." + addr.slice(-4);
 };
+
+export const leaderBoardTitle = {
+  membershipsLeaders: "Memberships",
+  summonsLeaders: "Summonings",
+  submissionLeaders: "Proposal Submissions",
+  sponsorLeaders: "Proposal Sponsors",
+  voteLeaders: "Votes",
+  dissentsLeaders: "Dissents",
+  assentsLeaders: "Assents",
+  rageLeaders: "Rage Quits",
+  jailedLeaders: "Jailings",
+};

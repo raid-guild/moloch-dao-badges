@@ -1,16 +1,64 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
+import { Box as ReBox, Heading, Text, Flex } from "rebass";
+
 import { GET_LEADERS } from "../../utils/Queries";
+import LeaderList from "../../components/leaders/LeaderList";
+import { leaderBoardTitle } from "../../utils/Helpers";
 
 const Leaders = () => {
   const { loading, error, data } = useQuery(GET_LEADERS);
 
   console.log("data", data);
 
+  const renderLeaderBoards = () => {
+    return Object.keys(data).map((key) => {
+      return (
+        <LeaderList
+          listItems={data[key]}
+          key={key}
+          title={leaderBoardTitle[key]}
+        />
+      );
+    });
+  };
+
   return (
-    <div>
-      <h1>Leaders</h1>
-    </div>
+    <>
+      <ReBox
+        sx={{
+          mx: "auto",
+          px: 3,
+        }}
+        p={5}
+        backgroundColor="muted"
+      >
+        <Flex flexDirection="column" alignItems="center" textAlign="center">
+          <Heading fontSize={[5, 6, 7]}>Leaders</Heading>
+        </Flex>
+      </ReBox>
+
+      <ReBox
+        sx={{
+          mx: "auto",
+          px: 3,
+        }}
+        p={5}
+      >
+        <Flex
+          flexDirection="row"
+          flexWrap="wrap"
+          alignItems="center"
+          textAlign="center"
+          justifyContent="center"
+        >
+          {loading ? <Text>Loading</Text> : null}
+          {error ? <Text>Loading</Text> : null}
+
+          {data ? renderLeaderBoards() : null}
+        </Flex>
+      </ReBox>
+    </>
   );
 };
 

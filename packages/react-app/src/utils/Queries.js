@@ -19,9 +19,13 @@ export const GET_BADGES = gql`
 
 export const GET_LEADERS = gql`
   query {
-    voteLeaders: badges(first: 5, orderBy: voteCount, orderDirection: desc) {
+    membershipsLeaders: badges(
+      first: 5
+      orderBy: memberships
+      orderDirection: desc
+    ) {
       memberAddress
-      voteCount
+      count: memberships
     }
 
     summonsLeaders: badges(
@@ -30,16 +34,7 @@ export const GET_LEADERS = gql`
       orderDirection: desc
     ) {
       memberAddress
-      summonCount
-    }
-
-    sponsorLeaders: badges(
-      first: 5
-      orderBy: proposalSponsorCount
-      orderDirection: desc
-    ) {
-      memberAddress
-      proposalSponsorCount
+      count: summonCount
     }
 
     submissionLeaders: badges(
@@ -48,7 +43,31 @@ export const GET_LEADERS = gql`
       orderDirection: desc
     ) {
       memberAddress
-      proposalSubmissionCount
+      count: proposalSubmissionCount
+    }
+
+    sponsorLeaders: badges(
+      first: 5
+      orderBy: proposalSponsorCount
+      orderDirection: desc
+    ) {
+      memberAddress
+      count: proposalSponsorCount
+    }
+
+    voteLeaders: badges(first: 5, orderBy: voteCount, orderDirection: desc) {
+      memberAddress
+      count: voteCount
+    }
+
+    dissentsLeaders: badges(first: 5, orderBy: dissents, orderDirection: desc) {
+      memberAddress
+      count: dissents
+    }
+
+    assentsLeaders: badges(first: 5, orderBy: assents, orderDirection: desc) {
+      memberAddress
+      count: assents
     }
 
     rageLeaders: badges(
@@ -57,7 +76,7 @@ export const GET_LEADERS = gql`
       orderDirection: desc
     ) {
       memberAddress
-      rageQuitCount
+      count: rageQuitCount
     }
 
     jailedLeaders: badges(
@@ -66,26 +85,7 @@ export const GET_LEADERS = gql`
       orderDirection: desc
     ) {
       memberAddress
-      jailedCount
-    }
-
-    membershipsLeaders: badges(
-      first: 5
-      orderBy: memberships
-      orderDirection: desc
-    ) {
-      memberAddress
-      memberships
-    }
-
-    dissentsLeaders: badges(first: 5, orderBy: dissents, orderDirection: desc) {
-      memberAddress
-      dissents
-    }
-
-    assentsLeaders: badges(first: 5, orderBy: assents, orderDirection: desc) {
-      memberAddress
-      assents
+      count: jailedCount
     }
   }
 `;

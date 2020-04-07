@@ -10,8 +10,6 @@ import { truncateAddr } from "../../utils/Helpers";
 const Header = () => {
   const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
 
-  console.log("currentUser", currentUser);
-
   return (
     <Flex px={2} color="white" bg="white" alignItems="center">
       <Text p={4} fontSize={4} fontWeight="bold" textDecoration="none">
@@ -22,9 +20,6 @@ const Header = () => {
       <ReBox ml={3}>
         <NavLink to="/leaders">Leaders</NavLink>
       </ReBox>
-      {/* <ReBox ml={3}>
-        <NavLink to="/about">About</NavLink>
-      </ReBox> */}
 
       {currentUser ? (
         <ReBox ml={3}>
