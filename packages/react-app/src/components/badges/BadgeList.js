@@ -10,7 +10,7 @@ import BadgeItem from "./BadgeItem";
 import { Web3ModalContext, CurrentUserContext } from "../../contexts/Store";
 import { addresses, abis } from "@project/contracts";
 
-const BadgeList = ({ playerAddr }) => {
+const BadgeList = ({ playerAddr, isOwner }) => {
   const [web3Modal] = useContext(Web3ModalContext);
   const [currentUser] = useContext(CurrentUserContext);
 
@@ -122,13 +122,13 @@ const BadgeList = ({ playerAddr }) => {
     return badges.map((badge, idx) => {
       return (
         <ReBox mb={5} key={idx}>
-          <Heading fontSize={5} color="primary">
+          <Heading fontSize={5} p={2} color="background" bg="highlight">
             {badge.title}
           </Heading>
-          <Text fontSize={3} fontWeight="bold" color="primary">
-            {badge.description}
+          <Text fontSize={3} p={2} fontWeight="bold" color="primary">
+            {`${badge.userCount} ${badge.description}`}
           </Text>
-          <Flex>{renderBadgeItems(badge)}</Flex>
+          <Flex p={2}>{renderBadgeItems(badge)}</Flex>
         </ReBox>
       );
     });
@@ -143,6 +143,7 @@ const BadgeList = ({ playerAddr }) => {
           step={step}
           idx={idx}
           key={idx}
+          isOwner={isOwner}
         />
       );
     });

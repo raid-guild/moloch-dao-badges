@@ -8,7 +8,9 @@ import Profile from "../../components/account/Profile";
 const Badges = ({ match }) => {
   const [currentUser] = useContext(CurrentUserContext);
   const ethAddress = match.params.address;
-  const isOwner = currentUser && currentUser.username === ethAddress;
+  const isOwner =
+    currentUser &&
+    currentUser.username.toLowerCase() === ethAddress.toLowerCase();
 
   return (
     <>
@@ -46,7 +48,11 @@ const Badges = ({ match }) => {
         py={3}
         backgroundColor="muted"
       >
-        <Text>Some instruction text</Text>
+        <Text>
+          Below are the badges this address has earned by participating in
+          Moloch DAOs. Once you earn a badge you can mint an NFT of the badge
+          and push it into the Collectible Favorites list in your 3Box profile.
+        </Text>
       </ReBox>
 
       <ReBox
@@ -56,7 +62,7 @@ const Badges = ({ match }) => {
         }}
         p={5}
       >
-        <BadgeList playerAddr={ethAddress} />
+        <BadgeList playerAddr={ethAddress} isOwner={isOwner} />
       </ReBox>
     </>
   );

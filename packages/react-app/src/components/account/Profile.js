@@ -1,23 +1,19 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "3box";
 import { Flex, Text, Box as ReBox } from "rebass";
 import { useQuery } from "@apollo/react-hooks";
 import moment from "moment";
 
-import { CurrentUserContext } from "../../contexts/Store";
 import { GET_MEMBERSHIP_META } from "../../utils/Queries";
 import { truncateAddr } from "../../utils/Helpers";
 import makeBlockie from "ethereum-blockies-base64";
 
 const Profile = ({ ethAddress }) => {
   const [profile, setProfile] = useState();
-  const [currentUser] = useContext(CurrentUserContext);
-  const isOwner = currentUser && currentUser.username === ethAddress;
 
   useEffect(() => {
     const set3BoxData = async () => {
       try {
-        console.log("ethAddress", ethAddress);
         const profile = await Box.getProfile(ethAddress);
         setProfile(profile);
       } catch (err) {
@@ -41,9 +37,6 @@ const Profile = ({ ethAddress }) => {
 
   if (loading) return <p>loading...</p>;
   if (error) return <p>profile error</p>;
-
-  console.log("profile", profile);
-  console.log("data", data);
 
   return (
     <Flex flexDirection="row" flexWrap="wrap" mx={-2} alignItems="flex-start">
@@ -82,9 +75,11 @@ const Profile = ({ ethAddress }) => {
         ) : null}
         {data.members[0] ? (
           <Text p={2}>
-            Member of a DAO since {formatDate(+data.members[0].createdAt)}
+            DAO Member since {formatDate(+data.members[0].createdAt)}
           </Text>
-        ) : null}
+        ) : (
+          <Text p={2}>Not a DAO Member</Text>
+        )}
       </ReBox>
     </Flex>
   );
