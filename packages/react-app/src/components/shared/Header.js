@@ -1,40 +1,42 @@
 import React, { useContext } from "react";
 import { Flex, Text, Box as ReBox } from "rebass";
 import { NavLink } from "react-router-dom";
+import makeBlockie from "ethereum-blockies-base64";
 
 import { CurrentUserContext } from "../../contexts/Store";
 import { Web3SignIn } from "../account/Web3SignIn";
+import { truncateAddr } from "../../utils/Helpers";
 
 const Header = () => {
   const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
 
+  console.log("currentUser", currentUser);
+
   return (
-    <Flex px={2} color="white" bg="black" alignItems="center">
-      <Text p={2} fontWeight="bold">
-        <NavLink to="/">DAO Badges</NavLink>
+    <Flex px={2} color="white" bg="white" alignItems="center">
+      <Text p={4} fontSize={4} fontWeight="bold" textDecoration="none">
+        <NavLink to="/">Moloch DAO Badges</NavLink>
       </Text>
 
       <ReBox mx="auto" />
       <ReBox ml={3}>
         <NavLink to="/leaders">Leaders</NavLink>
       </ReBox>
-      <ReBox ml={3}>
+      {/* <ReBox ml={3}>
         <NavLink to="/about">About</NavLink>
-      </ReBox>
+      </ReBox> */}
 
       {currentUser ? (
         <ReBox ml={3}>
-          <NavLink to={`/badges/${currentUser.username}`}>My Badges</NavLink>
+          <NavLink to={`/badges/${currentUser.username}`}>Badges</NavLink>
         </ReBox>
       ) : (
         <Web3SignIn setCurrentUser={setCurrentUser} />
       )}
       <ReBox ml={3}>
-        {currentUser && currentUser.profile ? (
-          <a
-            href={currentUser && `https://3box.io/${currentUser.username}/edit`}
-          >
-            <p>
+        {currentUser && currentUser.profile && currentUser.profile.image ? (
+          <ReBox>
+            <Text color="primary">
               <img
                 alt=""
                 width="40"
@@ -45,14 +47,25 @@ const Header = () => {
                     ? `https://ipfs.infura.io/ipfs/${currentUser.profile.image[0].contentUrl["/"]}`
                     : null
                 }
-              />{" "}
-              {currentUser.profile.name} {currentUser.profile.emoji}
-            </p>
-          </a>
+              />
+              {truncateAddr(currentUser.username)}
+            </Text>
+          </ReBox>
         ) : (
           <>
             {currentUser && currentUser.username ? (
-              <p>{currentUser.username}</p>
+              <ReBox>
+                <Text color="primary">
+                  <img
+                    alt=""
+                    width="40"
+                    height="40"
+                    style={{ backgroundColor: "#b5b5b5" }}
+                    src={makeBlockie(currentUser.username)}
+                  />
+                  {truncateAddr(currentUser.username)}
+                </Text>
+              </ReBox>
             ) : null}
           </>
         )}
