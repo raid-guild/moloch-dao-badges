@@ -3,8 +3,6 @@ import { Heading, Flex } from "rebass";
 import LeaderListItem from "./LeaderListItem";
 
 const LeaderList = ({ listItems, title }) => {
-  console.log("listItems", listItems);
-
   const renderItems = () => {
     return listItems
       .filter((r) => r.count > 0)

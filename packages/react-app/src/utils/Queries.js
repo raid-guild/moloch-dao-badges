@@ -17,6 +17,19 @@ export const GET_BADGES = gql`
   }
 `;
 
+export const GET_MEMBERSHIP_META = gql`
+  query($addr: String!) {
+    members(
+      where: { memberAddress: $addr }
+      orderBy: createdAt
+      orderDirection: asc
+      first: 1
+    ) {
+      createdAt
+    }
+  }
+`;
+
 export const GET_LEADERS = gql`
   query {
     membershipsLeaders: badges(
