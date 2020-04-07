@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button, Card, Text } from "rebass";
 
 const BadgeItem = ({ badge, idx, mintNFT }) => {
+  const [loading, setLoading] = useState(false);
+
   const badgeClass = badge.earned[idx] ? "" : "unearned-badge";
 
-  const handleHeart = () => {
+  const handleHeart = async () => {
     if (!badge) {
       return;
     }
-    mintNFT(badge.metaUris[idx])
+    setLoading(true);
+    await mintNFT(badge.metaUris[idx])
+    setLoading(false);
   }
 
   return (
@@ -19,7 +23,7 @@ const BadgeItem = ({ badge, idx, mintNFT }) => {
           <Text>You got it!</Text>
           {!badge.hasNft[idx] ? (
             <Button variant='primary' mr={2} onClick={handleHeart}>
-              <span aria-label="heart" role="img">❤️</span>
+              {loading ? (<span aria-label="loading" role="img">…</span>) : (<span aria-label="heart" role="img">❤️</span>)}
             </Button>
           ) : (
               <Button variant='outline' mr={2} disabled><span aria-label="check" role="img">✔</span></Button>

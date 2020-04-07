@@ -1,5 +1,6 @@
 import React, { useState, useEffect, createContext } from 'react';
 import Web3Modal from 'web3modal';
+import Box from "3box";
 import {
     w3connect,
     providerOptions,
@@ -34,7 +35,16 @@ const Store = ({ children }) => {
                 const [account] = await w3c.web3.eth.getAccounts();
                 setWeb3Modal(w3c);
                 user = createWeb3User(account);
-                setCurrentUser(user);
+                try {
+                    const profile = await Box.getProfile(user.username);
+                    setCurrentUser({ ...user, ...{ profile } });
+                } catch (err) {
+                    console.log('3box err', err);
+                    setCurrentUser(user);
+
+                }
+
+
             } catch (e) {
                 console.error(
                     `Could not log in with web3`,

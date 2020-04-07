@@ -1,25 +1,12 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import { Flex, Text, Box as ReBox } from "rebass";
 import { NavLink } from "react-router-dom";
-import Box from "3box";
 
 import { CurrentUserContext } from "../../contexts/Store";
 import { Web3SignIn } from "../account/Web3SignIn";
 
 const Header = () => {
   const [currentUser, setCurrentUser] = useContext(CurrentUserContext);
-  const [user3BoxDetail, setUser3BoxDetail] = useState();
-
-  useEffect(() => {
-    const get3BoxProfile = async () => {
-      const profile = await Box.getProfile(currentUser.username);
-
-      setUser3BoxDetail(profile);
-    };
-    if (currentUser && currentUser.username) {
-      get3BoxProfile();
-    }
-  }, [currentUser]);
 
   return (
     <Flex px={2} color="white" bg="black" alignItems="center">
@@ -43,7 +30,7 @@ const Header = () => {
         <Web3SignIn setCurrentUser={setCurrentUser} />
       )}
       <ReBox ml={3}>
-        {user3BoxDetail ? (
+        {currentUser && currentUser.profile ? (
           <a
             href={currentUser && `https://3box.io/${currentUser.username}/edit`}
           >
@@ -54,12 +41,12 @@ const Header = () => {
                 height="40"
                 style={{ backgroundColor: "#b5b5b5" }}
                 src={
-                  user3BoxDetail.image
-                    ? `https://ipfs.infura.io/ipfs/${user3BoxDetail.image[0].contentUrl["/"]}`
+                  currentUser.profile.image
+                    ? `https://ipfs.infura.io/ipfs/${currentUser.profile.image[0].contentUrl["/"]}`
                     : null
                 }
               />{" "}
-              {user3BoxDetail.name} {user3BoxDetail.emoji}
+              {currentUser.profile.name} {currentUser.profile.emoji}
             </p>
           </a>
         ) : (
