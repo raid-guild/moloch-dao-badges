@@ -20,6 +20,8 @@ const LeaderListItem = ({ item, rank }) => {
     };
 
     set3BoxData();
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
