@@ -9,8 +9,6 @@ import { leaderBoardTitle } from "../../utils/Helpers";
 const Leaders = () => {
   const { loading, error, data } = useQuery(GET_LEADERS);
 
-  console.log("data", data);
-
   const renderLeaderBoards = () => {
     return Object.keys(data).map((key) => {
       return (
