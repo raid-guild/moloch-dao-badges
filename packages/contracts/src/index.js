@@ -1,9 +1,7 @@
-import erc20Abi from "./abis/erc20";
-import ownableAbi from "./abis/ownable";
+import badgeNFTAbi from "./abis/badgeNFT";
 
 export const abis = {
-  erc20: erc20Abi,
-  ownable: ownableAbi,
+  NFT: badgeNFTAbi,
 };
 
 export { default as addresses } from "./addresses";

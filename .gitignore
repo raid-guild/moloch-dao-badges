@@ -2,6 +2,7 @@
 
 # dependencies
 /node_modules
+/.cache
 /.pnp
 .pnp.js
 
@@ -23,3 +24,5 @@ yarn-error.log*
 # subgraph
 /packages/subgraph/build/
 /packages/subgraph/src/types/
+
+/packages/react-app/node_modules
