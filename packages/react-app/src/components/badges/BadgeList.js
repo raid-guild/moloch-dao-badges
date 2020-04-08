@@ -29,9 +29,10 @@ const BadgeList = ({ playerAddr, isOwner }) => {
   // get mint log events for player and nft contract
   useEffect(() => {
     const asyncGetLogs = async () => {
+      const contractAddr = +process.env.REACT_APP_CHAIN_ID === 42 ? addresses.badgeNFT.kovan : addresses.badgeNFT.mainnet;
       const nftContract = new web3Modal.web3.eth.Contract(
         abis.NFT,
-        addresses.badgeNFT
+        contractAddr
       );
       setContract(nftContract);
       const events = await getLog(nftContract, playerAddr);
@@ -109,9 +110,10 @@ const BadgeList = ({ playerAddr, isOwner }) => {
   };
 
   const getEventsFromLog = async () => {
+    const contractAddr = +process.env.REACT_APP_CHAIN_ID === 42 ? addresses.badgeNFT.kovan : addresses.badgeNFT.mainnet;
     const nftContract = new web3Modal.web3.eth.Contract(
       abis.NFT,
-      addresses.badgeNFT
+      contractAddr
     );
     setContract(nftContract);
     const events = await getLog(nftContract, playerAddr);
