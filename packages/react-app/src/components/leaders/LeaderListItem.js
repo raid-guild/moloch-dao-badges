@@ -10,16 +10,25 @@ const LeaderListItem = ({ item, rank }) => {
   const [profile, setProfile] = useState();
 
   useEffect(() => {
+    let isCancelled = false;
+
     const set3BoxData = async () => {
       try {
         const profile = await Box.getProfile(item.memberAddress);
-        setProfile(profile);
+
+        if (!isCancelled) {
+          setProfile(profile);
+        }
       } catch (err) {
         console.log("3box err", err);
       }
     };
 
     set3BoxData();
+
+    return () => {
+      isCancelled = true;
+    };
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
