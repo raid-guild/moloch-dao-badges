@@ -1,0 +1,25 @@
+{
+  "title": "Badge Metadata",
+  "properties": {
+    "name": {
+      "description": "Memberships 1"
+    },
+    "description": {
+      "description": "Awarded for participating in the Moloch DAO ecosystem"
+    },
+    "image": {
+      "description": "https://gateway.pinata.cloud/ipfs/QmXBTdNdXPWGnzPxepiYhVbDZhM3WGBNJboRW6L8MbPBy9/v1-badges/001-medal-1.svg"
+    },
+    "external_url": "https://raidguild.org",
+    "attributes": [
+      {
+        "trait_type": "Base",
+        "value": "Badge"
+      },
+      {
+        "trait_type": "Level",
+        "value": 1
+      }
+    ]
+  }
+}
