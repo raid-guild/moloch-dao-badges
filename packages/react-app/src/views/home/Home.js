@@ -59,20 +59,20 @@ const Home = () => {
           mt={30}
           mx="auto"
         >
-          <Link to="/leaders">
-            <Button variant="outline" mr={2}>
-              Leaders
-            </Button>
-          </Link>
           {currentUser ? (
             <Link to={`/badges/${currentUser.username}`}>
               <Button variant="outline" mr={2}>
-                My Badges
+                Badges
               </Button>
             </Link>
           ) : (
             <Text>Sign in with Web3 to see your badges</Text>
           )}
+          <Link to="/leaders">
+            <Button variant="outline" mr={2}>
+              Leaders
+            </Button>
+          </Link>
         </Flex>
       </ReBox>
     </>

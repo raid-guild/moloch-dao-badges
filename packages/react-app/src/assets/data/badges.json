@@ -7,11 +7,11 @@
       "key": "memberships",
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-1-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-10-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-100-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/memberships-1-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/memberships-5-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/memberships-20-Badge.json"
       ],
-      "thresholds": [1, 10, 100]
+      "thresholds": [1, 5, 20]
     },
     {
       "title": "Summons",
@@ -19,9 +19,9 @@
       "key": "summonCount",
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/summonCount-1-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/summonCount-5-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/summonCount-10-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/summonCount-1-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/summonCount-5-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/summonCount-10-Badge.json"
       ],
       "thresholds": [1, 5, 10]
     },
@@ -32,9 +32,9 @@
       "key": "proposalSubmissionCount",
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSubmissionCount-1-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSubmissionCount-10-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSubmissionCount-100-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/proposalSubmissionCount-1-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/proposalSubmissionCount-10-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/proposalSubmissionCount-100-Badge.json"
       ],
       "thresholds": [1, 10, 100]
     },
@@ -44,9 +44,9 @@
       "key": "proposalSponsorCount",
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSponsorCount-1-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSponsorCount-10-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/proposalSponsorCount-100-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/proposalSponsorCount-1-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/proposalSponsorCount-10-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/proposalSponsorCount-100-Badge.json"
       ],
       "thresholds": [1, 10, 100]
     },
@@ -56,9 +56,9 @@
       "key": "voteCount",
       "files": ["007-medal-5.svg", "015-medal-13.svg", "017-insignia.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-1-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-10-Badge.json",
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/voteCount-100-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/voteCount-1-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/voteCount-10-Badge.json",
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/voteCount-100-Badge.json"
       ],
       "thresholds": [1, 10, 100]
     },
@@ -68,7 +68,7 @@
       "key": "dissents",
       "files": ["018-medal-14.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/dissenter-1-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/dissents-1-Badge.json"
       ],
       "thresholds": [1]
     },
@@ -78,7 +78,7 @@
       "key": "assents",
       "files": ["018-medal-14.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/dissenter-1-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/assents-1-Badge.json"
       ],
       "thresholds": [1]
     },
@@ -89,7 +89,7 @@
       "key": "rageQuitCount",
       "files": ["017-insignia.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/rageQuitCount-1-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/rageQuitCount-1-Badge.json"
       ],
       "thresholds": [1]
     },
@@ -99,7 +99,7 @@
       "key": "jailedCount",
       "files": ["017-insignia.svg"],
       "metaUris": [
-        "QmUyxWgELg3Xw893vxtpQjksKxy6tGQrbBUXdP6KB4iChP/jailedCount-1-Badge.json"
+        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/jailedCount-1-Badge.json"
       ],
       "thresholds": [1]
     }

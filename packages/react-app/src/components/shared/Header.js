@@ -17,9 +17,6 @@ const Header = () => {
       </Text>
 
       <ReBox mx="auto" />
-      <ReBox ml={3}>
-        <NavLink to="/leaders">Leaders</NavLink>
-      </ReBox>
 
       {currentUser ? (
         <ReBox ml={3}>
@@ -28,6 +25,11 @@ const Header = () => {
       ) : (
         <Web3SignIn setCurrentUser={setCurrentUser} />
       )}
+
+      <ReBox ml={3}>
+        <NavLink to="/leaders">Leaders</NavLink>
+      </ReBox>
+
       <ReBox ml={3}>
         {currentUser && currentUser.profile && currentUser.profile.image ? (
           <ReBox>
