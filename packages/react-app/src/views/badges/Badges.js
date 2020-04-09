@@ -51,7 +51,7 @@ const Badges = ({ match }) => {
         <Text>
           Below are the badges this address has earned by participating in
           Moloch DAOs. Once you earn a badge you can mint an NFT of the badge
-          and push it into the Collectible Favorites list in your 3Box profile.
+          and push it into the collectible favorites list in your 3Box profile.
         </Text>
       </ReBox>
 
