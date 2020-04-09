@@ -8,7 +8,8 @@ import { hydrateBadgeData, getLog } from "../../utils/Helpers";
 import BadgeRegistry from "../../assets/data/badges.json";
 import BadgeItem from "./BadgeItem";
 import { Web3ModalContext, CurrentUserContext } from "../../contexts/Store";
-import { addresses, abis } from "@project/contracts";
+import addresses from "../../contracts/addresses";
+import abi from "../../contracts/badgeNFT.json";
 
 const BadgeList = ({ playerAddr, isOwner }) => {
   const [web3Modal] = useContext(Web3ModalContext);
@@ -29,11 +30,11 @@ const BadgeList = ({ playerAddr, isOwner }) => {
   // get mint log events for player and nft contract
   useEffect(() => {
     const asyncGetLogs = async () => {
-      const contractAddr = +process.env.REACT_APP_CHAIN_ID === 42 ? addresses.badgeNFT.kovan : addresses.badgeNFT.mainnet;
-      const nftContract = new web3Modal.web3.eth.Contract(
-        abis.NFT,
-        contractAddr
-      );
+      const contractAddr =
+        +process.env.REACT_APP_CHAIN_ID === 42
+          ? addresses.badgeNFT.kovan
+          : addresses.badgeNFT.mainnet;
+      const nftContract = new web3Modal.web3.eth.Contract(abi, contractAddr);
       setContract(nftContract);
       const events = await getLog(nftContract, playerAddr);
       setEvents(events);
@@ -110,11 +111,11 @@ const BadgeList = ({ playerAddr, isOwner }) => {
   };
 
   const getEventsFromLog = async () => {
-    const contractAddr = +process.env.REACT_APP_CHAIN_ID === 42 ? addresses.badgeNFT.kovan : addresses.badgeNFT.mainnet;
-    const nftContract = new web3Modal.web3.eth.Contract(
-      abis.NFT,
-      contractAddr
-    );
+    const contractAddr =
+      +process.env.REACT_APP_CHAIN_ID === 42
+        ? addresses.badgeNFT.kovan
+        : addresses.badgeNFT.mainnet;
+    const nftContract = new web3Modal.web3.eth.Contract(abi, contractAddr);
     setContract(nftContract);
     const events = await getLog(nftContract, playerAddr);
     setEvents(events);

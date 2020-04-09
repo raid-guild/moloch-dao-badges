@@ -5,7 +5,6 @@ import CheckedBox from "../../assets/icons/checked-box.svg";
 import EmptyBox from "../../assets/icons/empty-box.svg";
 
 const BadgeItem = ({ badge, idx, mintNFT, isOwner }) => {
-  console.log("isOwner", isOwner);
   const [loading, setLoading] = useState(false);
 
   const badgeClass = badge.earned[idx] ? "" : "unearned-badge";
