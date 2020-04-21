@@ -18,6 +18,12 @@ const Header = () => {
 
       <ReBox mx="auto" />
 
+      {currentUser && (
+        <ReBox ml={3}>
+          <NavLink to={`/certs/${currentUser.username}`}>Certs</NavLink>
+        </ReBox>
+      )}
+
       {currentUser ? (
         <ReBox ml={3}>
           <NavLink to={`/badges/${currentUser.username}`}>Badges</NavLink>

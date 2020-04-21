@@ -14,6 +14,17 @@ export const hydrateBadgeData = (badgeRegistery, userData, nftData) => {
   });
 };
 
+export const hydrateCertData = (certRegistery, nftData) => {
+  return certRegistery.certs.map((certType) => {
+    certType.hasNft = certType.thresholds.map((limit) =>
+      nftData.some((nft) => {
+        return nft[0] === certType.key && nft[1] === limit.toString();
+      })
+    );
+    return certType;
+  });
+};
+
 export const getLog = async (contract, playerAddr) => {
   return await contract.getPastEvents(
     "Transfer",
