@@ -23,7 +23,6 @@ export const hydrateCertData = (certRegistery, nftData, playerAddr) => {
       return nftData
         .filter((nft) => nft.to === playerAddr)
         .some((nft) => {
-          const hasNft = nft.uri.indexOf(certType.metaUris) > -1 ? true : false;
           certType.owners = [
             ...new Set(
               nftData
@@ -35,6 +34,7 @@ export const hydrateCertData = (certRegistery, nftData, playerAddr) => {
                 .map((nft) => nft.to)
             ),
           ];
+          const hasNft = nft.uri.indexOf(certType.metaUris) > -1 ? true : false;
           if (hasNft) {
             certType.tokenId = [nft.tokenId];
           }

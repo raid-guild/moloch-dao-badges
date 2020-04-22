@@ -23,14 +23,14 @@ const CertList = ({ playerAddr, isOwner }) => {
 
   // get mint log events for player and nft contract
   useEffect(() => {
-    const asyncGetLogs = async () => {
+    const asyncGetLogs = async () => {      
       const contractAddr =
         +process.env.REACT_APP_CHAIN_ID === 42
-          ? addresses.badgeNFT.kovan
-          : addresses.badgeNFT.mainnet;
+          ? addresses.certNFT.kovan
+          : addresses.certNFT.mainnet;
       const nftContract = new web3Modal.web3.eth.Contract(abi, contractAddr);
       setContract(nftContract);
-      const events = await getLog(nftContract, playerAddr);
+      const events = await getLog(nftContract);
       console.log("events", events);
 
       setEvents(events);
@@ -38,7 +38,7 @@ const CertList = ({ playerAddr, isOwner }) => {
     if (web3Modal.web3) {
       asyncGetLogs();
     }
-  }, [web3Modal.web3, playerAddr]);
+  }, [web3Modal.web3]);
 
   // get token deatils (uri) for each token.
   useEffect(() => {
