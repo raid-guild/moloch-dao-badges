@@ -3,6 +3,7 @@
   "certs": [
     {
       "title": "Rage Ship",
+      "DAO": "Raid Guild",
       "type": "Achievement",
       "description": "Awarded by the RaidGuild DAO for outstanding resolve in an epic campaign.",
       "key": "rageship",
@@ -14,6 +15,7 @@
     },
     {
       "title": "Raid Lead",
+      "DAO": "Raid Guild",
       "type": "Achievement",
       "description": "Awarded by the RaidGuild DAO for outstanding leadership in an epic campaign.",
       "key": "ragelead",
@@ -25,6 +27,7 @@
     },
     {
       "title": "Minion test",
+      "DAO": "Raid Guild",
       "type": "Achievement",
       "description": "Testing Member of the minion team.",
       "key": "miniontest",
@@ -36,6 +39,7 @@
     },
     {
       "title": "RaidGuild Member",
+      "DAO": "Raid Guild",
       "type": "Certificate",
       "description": "Member of the guild.",
       "key": "rgmember",

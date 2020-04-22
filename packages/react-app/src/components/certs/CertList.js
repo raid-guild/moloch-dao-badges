@@ -114,6 +114,9 @@ const CertList = ({ playerAddr, isOwner }) => {
           <Text fontSize={3} p={2} fontWeight="bold" color="primary">
             {`${cert.description}`}
           </Text>
+          <Text fontSize={3} p={2} fontWeight="bold" color="primary">
+            DAO: {`${cert.DAO}`}
+          </Text>
 
           <Flex p={2}>
             <div>{renderCertItems(cert)}</div>

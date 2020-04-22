@@ -49,9 +49,10 @@ const Certs = ({ match }) => {
         backgroundColor="muted"
       >
         <Text>
-          Below are the badges this address has earned by participating in
-          Moloch DAOs. Once you earn a badge you can mint an NFT of the badge
-          and push it into the collectible favorites list in your 3Box profile.
+          Below are the certificates & achievements this address has been
+          awarded by a Moloch DAO. Once you are awarded a certificates &
+          achievements you can push it into the collectible favorites list in
+          your 3Box profile.
         </Text>
       </ReBox>
 
