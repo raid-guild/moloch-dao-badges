@@ -14,29 +14,63 @@ export const hydrateBadgeData = (badgeRegistery, userData, nftData) => {
   });
 };
 
-export const hydrateCertData = (certRegistery, nftData) => {
+export const hydrateCertData = (certRegistery, nftData, playerAddr) => {
+  // TODO: this went down hill fast
   return certRegistery.certs.map((certType) => {
-    certType.hasNft = certType.thresholds.map((limit) =>
-      nftData.some((nft) => {
-        return nft[0] === certType.key && nft[1] === limit.toString();
-      })
-    );
+    certType.tokenId = [undefined];
+    certType.owners = [];
+    certType.hasNft = certType.thresholds.map((limit) => {
+      return nftData
+        .filter((nft) => nft.to === playerAddr)
+        .some((nft) => {
+          const hasNft = nft.uri.indexOf(certType.metaUris) > -1 ? true : false;
+          certType.owners = [
+            ...new Set(
+              nftData
+                .filter(
+                  (nft) =>
+                    nft.to !== playerAddr &&
+                    nft.uri.indexOf(certType.metaUris) > -1
+                )
+                .map((nft) => nft.to)
+            ),
+          ];
+          if (hasNft) {
+            certType.tokenId = [nft.tokenId];
+          }
+          return hasNft;
+        });
+    });
     return certType;
   });
 };
 
-export const getLog = async (contract, playerAddr) => {
-  return await contract.getPastEvents(
-    "Transfer",
-    {
-      filter: { from: 0, to: playerAddr },
-      fromBlock: 0,
-      toBlock: "latest",
-    },
-    (err, ev) => {
-      return ev;
-    }
-  );
+export const getLog = async (contract, playerAddr = null) => {
+  if (playerAddr) {
+    return await contract.getPastEvents(
+      "Transfer",
+      {
+        filter: { from: 0, to: playerAddr },
+        fromBlock: 0,
+        toBlock: "latest",
+      },
+      (err, ev) => {
+        return ev;
+      }
+    );
+  } else {
+    return await contract.getPastEvents(
+      "Transfer",
+      {
+        filter: { from: 0 },
+        fromBlock: 0,
+        toBlock: "latest",
+      },
+      (err, ev) => {
+        return ev;
+      }
+    );
+  }
 };
 
 export const truncateAddr = (addr) => {

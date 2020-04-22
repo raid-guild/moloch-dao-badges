@@ -24,6 +24,17 @@
       "thresholds": [1]
     },
     {
+      "title": "Minion test",
+      "type": "Achievement",
+      "description": "Testing Member of the minion team.",
+      "key": "miniontest",
+      "files": ["007-medal-5.svg"],
+      "metaUris": [
+        "Qma1bfrZ7UoWbDzmgAwuEEkEtAzRCUkYAfdgWP5MvbkLeW/voteCount-1-Badge.json"
+      ],
+      "thresholds": [1]
+    },
+    {
       "title": "RaidGuild Member",
       "type": "Certificate",
       "description": "Member of the guild.",

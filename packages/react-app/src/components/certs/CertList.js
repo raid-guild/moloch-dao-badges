@@ -1,5 +1,7 @@
 import React, { useEffect, useContext, useState } from "react";
 import { Flex, Heading, Text, Box as ReBox } from "rebass";
+import { Link } from "react-router-dom";
+
 import Box from "3box";
 
 import { hydrateCertData, getLog } from "../../utils/Helpers";
@@ -17,7 +19,7 @@ const CertList = ({ playerAddr, isOwner }) => {
   const [txloading, setTxloading] = useState(false);
   const [contract, setContract] = useState();
   const [events, setEvents] = useState();
-  const [playerNFTs, setPlayerNFTs] = useState([]);
+  const [allNFTs, setAllNFTs] = useState([]);
 
   // get mint log events for player and nft contract
   useEffect(() => {
@@ -29,6 +31,8 @@ const CertList = ({ playerAddr, isOwner }) => {
       const nftContract = new web3Modal.web3.eth.Contract(abi, contractAddr);
       setContract(nftContract);
       const events = await getLog(nftContract, playerAddr);
+      console.log("events", events);
+
       setEvents(events);
     };
     if (web3Modal.web3) {
@@ -46,10 +50,14 @@ const CertList = ({ playerAddr, isOwner }) => {
         promises.push(prom);
       });
       const tokenURIs = await Promise.all(promises);
-      setPlayerNFTs(
-        tokenURIs.map((uri) =>
-          uri.split("/")[uri.split("/").length - 1].split("-")
-        )
+      console.log("tokenURIs", tokenURIs);
+
+      setAllNFTs(
+        tokenURIs.map((uri, idx) => ({
+          uri,
+          tokenId: events[idx].returnValues.tokenId,
+          to: events[idx].returnValues.to,
+        }))
       );
     };
     if (events && events.length) {
@@ -59,22 +67,25 @@ const CertList = ({ playerAddr, isOwner }) => {
 
   // hydrate data for badge item
   useEffect(() => {
-    if (playerNFTs) {
+    if (allNFTs) {
       const hydratedCertData = hydrateCertData(
         CertRegistry,
-        playerNFTs
+        allNFTs,
+        playerAddr
       );
+      console.log("hydratedCertData", hydratedCertData);
+
       setCerts(hydratedCertData);
     }
-  }, [playerNFTs]);
+  }, [allNFTs, playerAddr]);
 
-  const favoriteNFT = async (badgeHash, tokenId) => {
+  const favoriteNFT = async (tokenId) => {
     setTxloading(true);
 
     try {
       const box = await Box.openBox(currentUser.username, window.ethereum);
       currentUser.profile.collectiblesFavorites.push({
-        address: addresses.certFT,
+        address: addresses.certNFT,
         token_id: tokenId,
       });
       await box.public.set(
@@ -95,24 +106,38 @@ const CertList = ({ playerAddr, isOwner }) => {
     }
 
     return certs.map((cert, idx) => {
-
       return (
         <ReBox mb={5} key={idx}>
           <Heading fontSize={5} p={2} color="background" bg="highlight">
-          {cert.type}: {cert.title}
+            {cert.type}: {cert.title}
           </Heading>
           <Text fontSize={3} p={2} fontWeight="bold" color="primary">
             {`${cert.description}`}
           </Text>
-          <Flex p={2}>{renderCertItems(cert)}</Flex>
+
+          <Flex p={2}>
+            <div>{renderCertItems(cert)}</div>
+            <div>{renderCertOwners(cert)}</div>
+          </Flex>
         </ReBox>
+      );
+    });
+  };
+
+  const renderCertOwners = (cert) => {
+    // TODO: add 3box profile avatar
+    return cert.owners.map((owner) => {
+      return (
+        <Link key={owner} to={`/certs/${owner}`}>
+          {" "}
+          {owner}
+        </Link>
       );
     });
   };
 
   const renderCertItems = (cert) => {
     return cert.thresholds.map((step, idx) => {
-
       return (
         <CertItem
           mintNFT={favoriteNFT}

@@ -1,32 +1,21 @@
 import React, { useState } from "react";
-import { Button, Card, Text, Flex } from "rebass";
-
-import CheckedBox from "../../assets/icons/checked-box.svg";
-import EmptyBox from "../../assets/icons/empty-box.svg";
+import { Button, Card } from "rebass";
 
 const CertItem = ({ cert, idx, favoriteNFT, isOwner }) => {
   const [loading, setLoading] = useState(false);
 
-  //const badgeClass = cert.earned[idx] ? "" : "unearned-badge";
-  const badgeClass = false ? "" : "unearned-badge";
+  const badgeClass = cert.hasNft[idx] ? "" : "unearned-badge";
 
   const handleHeart = async () => {
     if (!cert) {
       return;
     }
     setLoading(true);
-    await favoriteNFT(cert.metaUris[idx]);
+
+    await favoriteNFT(cert.tokenId[idx]);
     setLoading(false);
   };
-
-  const renderCheck = (checked) => {
-    return checked ? (
-      <img src={CheckedBox} alt="Checked" />
-    ) : (
-      <img width="20" src={EmptyBox} alt="Checked" />
-    );
-  };
-
+  // TODO: use cert images
   return (
     <Card width={256}>
       <img
@@ -34,12 +23,7 @@ const CertItem = ({ cert, idx, favoriteNFT, isOwner }) => {
         src={`/badges/${cert.files[idx]}`}
         alt="cert"
       />
-      <Flex flexDirection="row">
-        {renderCheck(cert.hasNft[idx])}
-        <Text ml={2}>Minted</Text>
-      </Flex>
-
-      {!cert.hasNft[idx] && isOwner ? (
+      {cert.hasNft[idx] && isOwner ? (
         <Button variant="primary" mr={2} onClick={handleHeart}>
           {loading ? (
             <span aria-label="loading" role="img">
