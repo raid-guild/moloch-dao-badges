@@ -5,6 +5,7 @@ import About from "./views/about/About";
 import Badges from "./views/badges/Badges";
 import Home from "./views/home/Home";
 import Leaders from "./views/leaders/Leaders";
+import Certs from "./views/certs/Certs";
 
 const Routes = () => (
   <Switch>
@@ -12,6 +13,7 @@ const Routes = () => (
     <Route path="/about" exact component={About} />
     <Route path="/leaders" exact component={Leaders} />
     <Route path="/badges/:address" exact component={Badges} />
+    <Route path="/certs/:address" exact component={Certs} />
     <Route path="*" component={Home} />
   </Switch>
 );

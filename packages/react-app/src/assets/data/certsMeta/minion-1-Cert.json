@@ -1,0 +1,16 @@
+{
+    "name":  "Minion",
+    "description":  "Awarded for participating in Moloch Minion Raid",
+    "image":  "https://gateway.pinata.cloud/ipfs/QmYQ5wgpLSMAHMbUz798WdFaZzJehmQYoVWrb8UKKjq7eV",
+    "external_url": "https://minion.raidguild.org",
+    "attributes": [
+      {
+        "trait_type": "Base",
+        "value": "Achievement "
+      },
+      {
+        "trait_type": "Level",
+        "value": 1
+      }
+    ]
+}
