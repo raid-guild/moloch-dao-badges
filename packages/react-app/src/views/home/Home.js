@@ -28,7 +28,10 @@ const Home = () => {
             mt={60}
           >
             <Card width={200} m={10}>
-              <Image src={`/badges/018-medal-14.svg`} />
+              <Image
+                src={`/badges/018-medal-14.svg`}
+                style={{ fill: "pink" }}
+              />
               <Text>Participate in DAOs</Text>
             </Card>
 

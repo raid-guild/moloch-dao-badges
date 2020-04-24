@@ -2,8 +2,8 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider } from "theme-ui";
 
-import theme from "./dark-theme";
-// import theme from "@rebass/preset";
+// import theme from "./dark-theme";
+import theme from "./rg-theme";
 
 import Routes from "./Routes";
 import Header from "./components/shared/Header";
