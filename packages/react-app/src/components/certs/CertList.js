@@ -10,6 +10,7 @@ import CertItem from "./CertItem";
 import { Web3ModalContext, CurrentUserContext } from "../../contexts/Store";
 import addresses from "../../contracts/addresses";
 import abi from "../../contracts/certNFT.json";
+import SmallProfile from "../account/SmallProfile";
 
 const CertList = ({ playerAddr, isOwner }) => {
   const [web3Modal] = useContext(Web3ModalContext);
@@ -132,8 +133,7 @@ const CertList = ({ playerAddr, isOwner }) => {
     return cert.owners.map((owner) => {
       return (
         <Link key={owner} to={`/certs/${owner}`}>
-          {" "}
-          {owner}
+          <SmallProfile memberAddress={owner} />
         </Link>
       );
     });
