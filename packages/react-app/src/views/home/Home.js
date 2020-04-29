@@ -60,11 +60,18 @@ const Home = () => {
           mx="auto"
         >
           {currentUser ? (
-            <Link to={`/badges/${currentUser.username}`}>
-              <Button variant="outline" mr={2}>
-                Badges
-              </Button>
-            </Link>
+            <>
+              <Link to={`/badges/${currentUser.username}`}>
+                <Button variant="outline" mr={2}>
+                  Badges
+                </Button>
+              </Link>
+              <Link to={`/certs/${currentUser.username}`}>
+                <Button variant="outline" mr={2}>
+                  Certificates & Achievements
+                </Button>
+              </Link>
+            </>
           ) : (
             <Text>Sign in with Web3 to see your badges</Text>
           )}
