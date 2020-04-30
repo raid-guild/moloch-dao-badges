@@ -27,7 +27,7 @@ const BadgeItem = ({ badge, idx, mintNFT, isOwner }) => {
   };
 
   return (
-    <Card width={256}>
+    <Card width={356}>
       <Text fontSize={10}>Earn with {badge.thresholds[idx]}</Text>
       <img
         className={badgeClass}
