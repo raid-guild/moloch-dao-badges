@@ -1,0 +1,16 @@
+{
+    "name":  "Raid Guild Member",
+    "description":  "Member of the Raid Guild",
+    "image":  "https://gateway.pinata.cloud/ipfs/QmPTiXJNSPHG7qXsPvAFqDCuAVXw3ZsRZjdAqkWxtoiEcB",
+    "external_url": "https://raidguild.org",
+    "attributes": [
+      {
+        "trait_type": "Base",
+        "value": "Certificate"
+      },
+      {
+        "trait_type": "Level",
+        "value": 1
+      }
+    ]
+}

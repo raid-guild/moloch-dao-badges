@@ -43,9 +43,9 @@
       "type": "Certificate",
       "description": "Member of the guild.",
       "key": "rgmember",
-      "files": ["007-medal-5.svg"],
+      "files": ["rgmember400.gif"],
       "metaUris": [
-        "QmYC5E5P1CZMoHgBMGq13jHTs4ZDU6anevhawwkyc5cwh7/memberships-1-Badge.json"
+        "QmWwQWRDH5LJXSvnRTL1yLg8YjiyLKfgTMgXmb5JaFekCX"
       ],
       "thresholds": [1]
     }
