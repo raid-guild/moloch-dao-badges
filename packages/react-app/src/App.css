@@ -1,3 +1,8 @@
+.App {
+  background: #222;
+  overflow-y: scroll;
+}
+
 .unearned-badge {
   filter: opacity(0.2);
 }
@@ -9,4 +14,27 @@ a {
 
 a:hover {
   color: #3f3f3f;
+}
+
+h1.Home__headline {
+  margin-top: 50px;
+  font-size: 4em;
+}
+
+.Home__badge {
+  width: 200px;
+  height: 200px;
+}
+
+.Header__profile {
+  display: flex;
+  flex-direction: column;
+}
+
+.Header__signin {
+  margin-left: 25px;
+}
+
+.Leaders__List {
+  position: unset;
 }

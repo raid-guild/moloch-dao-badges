@@ -7,6 +7,8 @@ import { CurrentUserContext } from "../../contexts/Store";
 const Home = () => {
   const [currentUser] = useContext(CurrentUserContext);
 
+  console.log("currentUser", currentUser);
+
   return (
     <>
       <ReBox
@@ -18,8 +20,9 @@ const Home = () => {
         backgroundColor="muted"
       >
         <Flex flexDirection="column" alignItems="center" textAlign="center">
-          <Heading fontSize={[5, 6, 7]}>Moloch DAO Badges</Heading>
-          <Text mt={60}>DAO participation acheivements.</Text>
+          <h1 className="Home__headline">Moloch DAO Badges</h1>
+
+          <p>DAO participation acheivements.</p>
 
           <Flex
             flexDirection="row"
@@ -28,18 +31,19 @@ const Home = () => {
             mt={60}
           >
             <Card width={200} m={10}>
-              <Image src={`/badges/018-medal-14.svg`} />
-              <Text>Participate in DAOs</Text>
+              <div className="rpgui-icon shield Home__badge"></div>
+              <p>Participate in DAOs</p>
             </Card>
 
             <Card width={200} m={10}>
-              <Image src={`/badges/019-medal-15.svg`} />
-              <Text>Unlock Badges</Text>
+              <div className="rpgui-icon sword Home__badge"></div>
+
+              <p>Unlock Badges</p>
             </Card>
 
             <Card width={200} m={10}>
-              <Image src={`/badges/020-medal-16.svg`} />
-              <Text>Mint NFTs</Text>
+              <div className="rpgui-icon potion-red Home__badge"></div>
+              <p>Mint NFTs</p>
             </Card>
           </Flex>
         </Flex>
@@ -62,23 +66,19 @@ const Home = () => {
           {currentUser ? (
             <>
               <Link to={`/badges/${currentUser.username}`}>
-                <Button variant="outline" mr={2}>
-                  Badges
-                </Button>
+                <button className="rpgui-button">Badges</button>
               </Link>
               <Link to={`/certs/${currentUser.username}`}>
-                <Button variant="outline" mr={2}>
+                <button className="rpgui-button">
                   Certificates & Achievements
-                </Button>
+                </button>
               </Link>
             </>
           ) : (
             <Text>Sign in with Web3 to see your badges</Text>
           )}
           <Link to="/leaders">
-            <Button variant="outline" mr={2}>
-              Leaders
-            </Button>
+            <button className="rpgui-button">Leaders</button>
           </Link>
         </Flex>
       </ReBox>

@@ -12,8 +12,10 @@ const LeaderList = ({ listItems, title }) => {
   };
   return (
     <Flex flexDirection="column" m={4}>
-      <Heading mb={10}>{title}</Heading>
-      {renderItems()}
+      <div className="rpgui-container framed Leaders__List">
+        <h3>{title}</h3>
+        {renderItems()}
+      </div>
     </Flex>
   );
 };

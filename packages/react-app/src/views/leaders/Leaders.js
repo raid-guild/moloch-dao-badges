@@ -32,7 +32,7 @@ const Leaders = () => {
         backgroundColor="muted"
       >
         <Flex flexDirection="column" alignItems="center" textAlign="center">
-          <Heading fontSize={[5, 6, 7]}>Leaders</Heading>
+          <h1 className="Home__headline">Leaders</h1>
         </Flex>
       </ReBox>
 
