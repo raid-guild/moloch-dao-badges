@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Button } from "rebass";
 
 import { Web3ModalContext, CurrentUserContext } from "../../contexts/Store";
 import { createWeb3User, w3connect } from "../../utils/Auth";

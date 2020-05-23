@@ -1,13 +1,11 @@
 import React, { useContext } from "react";
-import { Box as ReBox, Heading, Text, Flex, Image, Card, Button } from "rebass";
+import { Box as ReBox, Text, Flex, Card } from "rebass";
 import { Link } from "react-router-dom";
 
 import { CurrentUserContext } from "../../contexts/Store";
 
 const Home = () => {
   const [currentUser] = useContext(CurrentUserContext);
-
-  console.log("currentUser", currentUser);
 
   return (
     <>
@@ -31,13 +29,12 @@ const Home = () => {
             mt={60}
           >
             <Card width={200} m={10}>
-              <div className="rpgui-icon shield Home__badge"></div>
+              <div className="rpgui-icon sword Home__badge"></div>
               <p>Participate in DAOs</p>
             </Card>
 
             <Card width={200} m={10}>
-              <div className="rpgui-icon sword Home__badge"></div>
-
+              <div className="rpgui-icon shield Home__badge"></div>
               <p>Unlock Badges</p>
             </Card>
 

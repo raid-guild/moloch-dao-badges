@@ -1,5 +1,5 @@
 import React from "react";
-import { Heading, Flex } from "rebass";
+import { Flex } from "rebass";
 import LeaderListItem from "./LeaderListItem";
 
 const LeaderList = ({ listItems, title }) => {
@@ -12,7 +12,7 @@ const LeaderList = ({ listItems, title }) => {
   };
   return (
     <Flex flexDirection="column" m={4}>
-      <div className="rpgui-container framed Leaders__List">
+      <div className="rpgui-container framed unset__container">
         <h3>{title}</h3>
         {renderItems()}
       </div>

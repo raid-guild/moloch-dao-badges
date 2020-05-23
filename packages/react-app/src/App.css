@@ -35,6 +35,10 @@ h1.Home__headline {
   margin-left: 25px;
 }
 
-.Leaders__List {
+.unset__container {
   position: unset;
+}
+
+.Profile__bar {
+  width: 300px;
 }

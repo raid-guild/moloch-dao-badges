@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Box from "3box";
 import makeBlockie from "ethereum-blockies-base64";
-import { Text } from "rebass";
 
 import { truncateAddr } from "../../utils/Helpers";
 

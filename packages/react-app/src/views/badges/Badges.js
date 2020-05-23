@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Box as ReBox, Heading, Flex, Text } from "rebass";
+import { Box as ReBox, Flex } from "rebass";
 
 import { CurrentUserContext } from "../../contexts/Store";
 import BadgeList from "../../components/badges/BadgeList";
@@ -23,7 +23,7 @@ const Badges = ({ match }) => {
         backgroundColor="muted"
       >
         <Flex flexDirection="column" alignItems="center" textAlign="center">
-          <Heading fontSize={[5, 6, 7]}>Badges</Heading>
+          <h1 className="Home__headline">Badges</h1>
         </Flex>
       </ReBox>
 
@@ -34,9 +34,10 @@ const Badges = ({ match }) => {
         }}
         px={5}
         py={3}
-        backgroundColor="highlight"
       >
-        <Profile ethAddress={ethAddress} />
+        <div className="rpgui-container framed-golden-2 unset__container">
+          <Profile ethAddress={ethAddress} />
+        </div>
       </ReBox>
 
       <ReBox
@@ -46,13 +47,12 @@ const Badges = ({ match }) => {
         }}
         px={5}
         py={3}
-        backgroundColor="muted"
       >
-        <Text>
+        <p>
           Below are the badges this address has earned by participating in
           Moloch DAOs. Once you earn a badge you can mint an NFT of the badge
           and push it into the collectible favorites list in your 3Box profile.
-        </Text>
+        </p>
       </ReBox>
 
       <ReBox
