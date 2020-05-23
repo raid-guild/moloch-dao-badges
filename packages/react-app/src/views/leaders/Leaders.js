@@ -1,6 +1,6 @@
 import React from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Box as ReBox, Heading, Text, Flex } from "rebass";
+import { Box as ReBox, Text, Flex } from "rebass";
 
 import { GET_LEADERS } from "../../utils/Queries";
 import LeaderList from "../../components/leaders/LeaderList";
@@ -32,7 +32,7 @@ const Leaders = () => {
         backgroundColor="muted"
       >
         <Flex flexDirection="column" alignItems="center" textAlign="center">
-          <Heading fontSize={[5, 6, 7]}>Leaders</Heading>
+          <h1 className="Home__headline">Leaders</h1>
         </Flex>
       </ReBox>
 

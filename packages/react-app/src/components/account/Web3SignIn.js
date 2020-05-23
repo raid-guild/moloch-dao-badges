@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import { Button } from "rebass";
 
 import { Web3ModalContext, CurrentUserContext } from "../../contexts/Store";
 import { createWeb3User, w3connect } from "../../utils/Auth";
@@ -9,9 +8,8 @@ export const Web3SignIn = () => {
   const [, setCurrentUser] = useContext(CurrentUserContext);
 
   return (
-    <Button
-      variant="outline-primary"
-      ml={5}
+    <button
+      className="rpgui-button golden Header__signin"
       onClick={async () => {
         try {
           const w3c = await w3connect(web3Modal);
@@ -24,7 +22,7 @@ export const Web3SignIn = () => {
         }
       }}
     >
-      Sign In With Web3
-    </Button>
+      <p>Sign In With Web3</p>
+    </button>
   );
 };

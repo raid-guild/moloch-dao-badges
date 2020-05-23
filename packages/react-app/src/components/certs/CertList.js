@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from "react";
-import { Flex, Heading, Text, Box as ReBox } from "rebass";
+import { Flex, Box as ReBox } from "rebass";
 import { Link } from "react-router-dom";
 
 import Box from "3box";
@@ -24,7 +24,7 @@ const CertList = ({ playerAddr, isOwner }) => {
 
   // get mint log events for player and nft contract
   useEffect(() => {
-    const asyncGetLogs = async () => {      
+    const asyncGetLogs = async () => {
       const contractAddr =
         +process.env.REACT_APP_CHAIN_ID === 42
           ? addresses.certNFT.kovan
@@ -32,7 +32,6 @@ const CertList = ({ playerAddr, isOwner }) => {
       const nftContract = new web3Modal.web3.eth.Contract(abi, contractAddr);
       setContract(nftContract);
       const events = await getLog(nftContract);
-      console.log("events", events);
 
       setEvents(events);
     };
@@ -51,7 +50,6 @@ const CertList = ({ playerAddr, isOwner }) => {
         promises.push(prom);
       });
       const tokenURIs = await Promise.all(promises);
-      console.log("tokenURIs", tokenURIs);
 
       setAllNFTs(
         tokenURIs.map((uri, idx) => ({
@@ -74,7 +72,6 @@ const CertList = ({ playerAddr, isOwner }) => {
         allNFTs,
         playerAddr
       );
-      console.log("hydratedCertData", hydratedCertData);
 
       setCerts(hydratedCertData);
     }
@@ -109,27 +106,34 @@ const CertList = ({ playerAddr, isOwner }) => {
     return certs.map((cert, idx) => {
       return (
         <ReBox mb={5} key={idx}>
-          <Heading fontSize={5} p={2} color="background" bg="highlight">
-            {cert.type}: {cert.title}
-          </Heading>
-          <Text fontSize={3} p={2} fontWeight="bold" color="primary">
-            {`${cert.description}`}
-          </Text>
-          <Text fontSize={3} p={2} fontWeight="bold" color="primary">
-            DAO: {`${cert.DAO}`}
-          </Text>
+          <div className="rpgui-container framed unset__container">
+            <h3>
+              {cert.type}: {cert.title}
+            </h3>
+            <p>{`${cert.description}`}</p>
+            <p>DAO: {`${cert.DAO}`}</p>
 
-          <Flex p={2}>
-            <div>{renderCertItems(cert)}</div>
-            <div>{renderCertOwners(cert)}</div>
-          </Flex>
+            {/* <Flex p={2}> */}
+            <Flex
+              flexDirection="column"
+              flexWrap="wrap"
+              mt={20}
+              alignItem="center"
+            >
+              {renderCertItems(cert)}
+            </Flex>
+
+            <Flex flexDirection="row" flexWrap="wrap" mt={20}>
+              {renderCertOwners(cert)}
+            </Flex>
+            {/* </Flex> */}
+          </div>
         </ReBox>
       );
     });
   };
 
   const renderCertOwners = (cert) => {
-    // TODO: add 3box profile avatar
     return cert.owners.map((owner) => {
       return (
         <Link key={owner} to={`/certs/${owner}`}>
