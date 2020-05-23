@@ -23,7 +23,6 @@ export const GET_MEMBERSHIP_META = gql`
       where: { memberAddress: $addr }
       orderBy: createdAt
       orderDirection: asc
-      first: 1
     ) {
       createdAt
     }

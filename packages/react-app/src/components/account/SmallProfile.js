@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Box from "3box";
 import makeBlockie from "ethereum-blockies-base64";
-import { Text } from "rebass";
 
 import { truncateAddr } from "../../utils/Helpers";
 
@@ -33,7 +32,7 @@ const SmallProfile = ({ memberAddress }) => {
   }, []);
 
   return (
-    <Text mr={5}>
+    <div className="Header__profile">
       {profile && profile.image ? (
         <img
           alt=""
@@ -55,9 +54,8 @@ const SmallProfile = ({ memberAddress }) => {
           src={makeBlockie(memberAddress)}
         />
       )}
-
-      {truncateAddr(memberAddress)}
-    </Text>
+      <p>{truncateAddr(memberAddress)}</p>
+    </div>
   );
 };
 

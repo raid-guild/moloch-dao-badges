@@ -1,6 +1,6 @@
 import React, { useEffect, useContext, useState } from "react";
 import { useQuery } from "@apollo/react-hooks";
-import { Flex, Heading, Text, Box as ReBox } from "rebass";
+import { Flex, Box as ReBox } from "rebass";
 import Box from "3box";
 
 import { GET_BADGES } from "../../utils/Queries";
@@ -125,12 +125,8 @@ const BadgeList = ({ playerAddr, isOwner }) => {
     return badges.map((badge, idx) => {
       return (
         <ReBox mb={5} key={idx}>
-          <Heading fontSize={5} p={2} color="background" bg="highlight">
-            {badge.title}
-          </Heading>
-          <Text fontSize={3} p={2} fontWeight="bold" color="primary">
-            {`${badge.userCount} ${badge.description}`}
-          </Text>
+          <h3>{badge.title}</h3>
+          <p>{`${badge.userCount} ${badge.description}`}</p>
           <Flex p={2}>{renderBadgeItems(badge)}</Flex>
         </ReBox>
       );
