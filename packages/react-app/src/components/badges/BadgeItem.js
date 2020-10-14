@@ -61,7 +61,7 @@ const BadgeItem = ({ badge, idx, mintNFT, isOwner }) => {
         ) : (
           <p>
             {badge.thresholds[idx] - badge.userCount} more needed to earn this
-            badge
+            badge.
           </p>
         )}
       </div>
